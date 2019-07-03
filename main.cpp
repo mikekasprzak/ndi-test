@@ -2,8 +2,9 @@
 #include <Processing.NDI.Lib.h>
 
 int main(int argc, char* argv[]) {
-	NDIlib_find_instance_t nf = NDIlib_find_create_v2(nullptr);
+	NDIlib_initialize();
 	
+	NDIlib_find_instance_t nf = NDIlib_find_create_v2();
 	if (!nf) {
 		printf("Unable ta create finder\n");
 		
@@ -22,6 +23,8 @@ int main(int argc, char* argv[]) {
 
 
 	NDIlib_find_destroy(nf);
+	
+	NDIlib_destroy();
 
 	return 0;
 }
